@@ -16,14 +16,13 @@ class Car:
         self.park_duration = park_duration
 
 
-
     def get_brand(self):
         return self.brand
 
     def get_park_duration(self):
         return self.park_duration
 
-    def __dell__(self):
+    def __del__(self):
         print(f"{self.brand.value} видалено")
 
 
@@ -41,7 +40,7 @@ class Parking:
 
     def park_car(self, car):
         if len(self.cars) >= self.capacity:
-            print(f'Немає місця для {car.brand.value}')
+            print(f"Немає місця для {car.brand.value}")
             return
         self.cars.append(car)
         print(f"Автомобіль {car.brand.value} припарковано")
@@ -49,7 +48,7 @@ class Parking:
     def leave_parking(self, car):
         if car in self.cars:
             self.cars.remove(car)
-            print(f'Автомобіль {car.brand.value} покидає парковку')
+            print(f"Автомобіль {car.brand.value} покидає парковку")
         else:
             print(f"Автомобіля {car.brand.value} немає на парковці")
 
@@ -60,7 +59,7 @@ class Parking:
     def calculate_price(self):
         for car in self.cars:
             price = self.price_per_hour * car.park_duration
-            print(f'Автомобіль {car.brand.value} час на стоянці {car.park_duration} до сплати {price}')
+            print(f"Автомобіль {car.brand.value} час на стоянці {car.park_duration} год до сплати {price} грн")
 
 
 if __name__ == "__main__":
